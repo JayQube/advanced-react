@@ -17,7 +17,8 @@ export default (env: BuildEnv) => {
         // Точка выхода
         build: path.resolve(__dirname, 'build'),
         // Путь к файлу index.html
-        html: path.resolve(__dirname, 'public', 'index.html')
+        html: path.resolve(__dirname, 'public', 'index.html'),
+        src: path.resolve(__dirname, 'src')
     }
 
     const mode: BuildMode = env.mode || 'development';

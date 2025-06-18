@@ -31,7 +31,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
 			rules: buildLoaders(options)
 		},
 		// Расширения файлов для которых не нужно указывать расширение при импорте
-		resolve: buildResolvers(),
+		resolve: buildResolvers(options),
 		// Для создания source map. Для отладки кода.
 		devtool: isDev ? "inline-source-map" : undefined,
 		// Дев сервер для hot reload
