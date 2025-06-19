@@ -18,6 +18,7 @@ export default (env: BuildEnv) => {
         build: path.resolve(__dirname, 'build'),
         // Путь к файлу index.html
         html: path.resolve(__dirname, 'public', 'index.html'),
+        // Путь к папке src
         src: path.resolve(__dirname, 'src')
     }
 

@@ -3,6 +3,7 @@ import './styles/index.scss'
 import {Link, Route, Routes} from "react-router-dom";
 import {useTheme} from "app/providers/ThemeProvider";
 import {classNames} from "shared/lib/classNames/classNames";
+// Поменяли импорты
 import {AboutPage} from "pages/AboutPage";
 import {MainPage} from "pages/MainPage";
 
