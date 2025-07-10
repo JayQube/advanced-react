@@ -14,7 +14,8 @@ export function classNames(cls: string, mods: Mods = {}, additional: string[] = 
         // Основной класс
         cls,
         // Дополнительные классы (разворачиваются через spread)
-        ...additional,
+        // Фильтрация для отсечения undefind
+        ...additional.filter(Boolean),
         // Object.entries(mods) превращает объект в массив пар [ключ, значение]
         ...Object.entries(mods)
             // Оставляем только те, у которых значение true/непустая строка
