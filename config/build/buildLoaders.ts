@@ -1,10 +1,17 @@
 import webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import {BuildOptions} from "./types/config";
+import { BuildOptions } from "./types/config";
 
-export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     // Так как имеет значение в каком порядке лоадеры возвращаются в массиве, то лоадеры мы выносим
     // в переменные
+
+    // Устанавливаем пакет через npm - npm i @svgr/webpack --save-dev
+    const svgLoader = {
+        // Регулярка для поиска svg файлов
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
 
     const cssLoader = {
         test: /\.s[ac]ss$/i,
@@ -36,8 +43,20 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/, // Исключает папку node_modules из обработки
     }
 
+    // Устанавливаем пакет через npm - npm i file-loader --save-dev
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    }
+
     // Список лоадеров
     return [
+        fileLoader,
+        svgLoader,
         typescriptLoader,
         cssLoader
     ]
