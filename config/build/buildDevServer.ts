@@ -7,5 +7,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         // Автоматически открывает страницу с приложением в браузере
         open: true,
         historyApiFallback: true,
+        // Позволяет применять изменения без перезагрузки страницы
+        hot: true,
     }
 }

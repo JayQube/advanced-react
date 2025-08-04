@@ -29,6 +29,8 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
 		// Позволяет прокидывать глобальные переменные через все приложение
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev)
-		})
+		}),
+		// Позволяет применять изменения без перезагрузки страницы
+		new webpack.HotModuleReplacementPlugin(),
 	]
 }
