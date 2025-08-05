@@ -12,20 +12,20 @@ type Mods = Record<string, boolean | string>
 // для которого применяются стили
 // Функция возвращает строку
 export function classNames(cls: string, mods: Mods = {}, additional: string[] = []): string {
-    return [
-        // Основной класс
-        cls,
-        // Дополнительные классы (разворачиваются через spread)
-        // Фильтрация для отсечения undefined
-        ...additional.filter(Boolean),
-        // Object.entries(mods) превращает объект в массив пар [ключ, значение]
-        ...Object.entries(mods)
-            // Оставляем только те, у которых значение true/непустая строка
-            .filter(([className, value]) => Boolean(value))
-            // .map(([className, value]) => className) превращает массив
-            // пар обратно в массив строк (только имена классов).
-            .map(([className, value]) => className),
-    ]
-        // Массив склеивается в строку
-        .join(' ');
+  return [
+    // Основной класс
+    cls,
+    // Дополнительные классы (разворачиваются через spread)
+    // Фильтрация для отсечения undefined
+    ...additional.filter(Boolean),
+    // Object.entries(mods) превращает объект в массив пар [ключ, значение]
+    ...Object.entries(mods)
+    // Оставляем только те, у которых значение true/непустая строка
+      .filter(([className, value]) => Boolean(value))
+    // .map(([className, value]) => className) превращает массив
+    // пар обратно в массив строк (только имена классов).
+      .map(([className, value]) => className),
+  ]
+  // Массив склеивается в строку
+    .join(' ');
 }

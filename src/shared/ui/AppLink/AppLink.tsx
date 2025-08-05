@@ -33,7 +33,7 @@ export const AppLink: FC<AppLinkProps> = (props) => {
       className={classNames(cls.applink, {}, [className, cls[theme]])}
       {...otherProps}
     >
-      {/* В children попадают названия ссылок при вызове этого компонента. 
+      {/* В children попадают названия ссылок при вызове этого компонента.
         В данном случает 'Главная' и 'О сайте'
       */}
       {children}

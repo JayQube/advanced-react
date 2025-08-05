@@ -9,15 +9,15 @@ interface LangSwitcherProps {
 
 export const LangSwitcher = ({ className }: LangSwitcherProps) => {
   // Инициализируем хук useTranslation с именем файла, в котором хранится перевод.
-  const { t, i18n } = useTranslation("translation");
+  const { t, i18n } = useTranslation('translation');
 
   // Функция переключения языка
   const toggle = () => {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
-  }
+    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+  };
 
   return (
-    // Используем наш компонент Button, а не встроеный 
+    // Используем наш компонент Button, а не встроеный
     <Button
       // className={classNames(cls.langswitcher, {}, [className])}
       className={classNames('', {}, [className])}
@@ -26,7 +26,7 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
     >
       {/* Ключ по которому ищется перевод, в зависимости от того, на какой
       язык переключились в функции toggle(). В данном случае это текст кнопки. */}
-      {t("Language")}
+      {t('Language')}
     </Button>
   );
 };
