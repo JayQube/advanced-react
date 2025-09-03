@@ -20,12 +20,12 @@ export function classNames(cls: string, mods: Mods = {}, additional: string[] = 
     ...additional.filter(Boolean),
     // Object.entries(mods) превращает объект в массив пар [ключ, значение]
     ...Object.entries(mods)
-    // Оставляем только те, у которых значение true/непустая строка
-      .filter(([className, value]) => Boolean(value))
-    // .map(([className, value]) => className) превращает массив
-    // пар обратно в массив строк (только имена классов).
-      .map(([className, value]) => className),
+      // Оставляем только те, у которых значение true/непустая строка
+      .filter(([_, value]) => Boolean(value))
+      // .map(([className, value]) => className) превращает массив
+      // пар обратно в массив строк (только имена классов).
+      .map(([className]) => className),
   ]
-  // Массив склеивается в строку
+    // Массив склеивается в строку
     .join(' ');
 }
