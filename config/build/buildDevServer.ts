@@ -9,5 +9,10 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     historyApiFallback: true,
     // Позволяет применять изменения без перезагрузки страницы
     hot: true,
+    client: {
+      // Блокирует оверлей webpack с описанием ошибки
+      // мешал при настройке ErrorBoundary
+      overlay: false,
+    },
   };
 }

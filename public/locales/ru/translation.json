@@ -6,5 +6,8 @@
   "Loading": "Загрузка",
   "Main page": "Главная страница",
   "About page": "О сайте",
-  "NotFoundPage": "Страница не найдена"
+  "NotFoundPage": "Страница не найдена",
+  "An unexpected error occurred": "Произошла непредвиденная ошибка",
+  "Reload page": "Обновить страницу",
+  "throw error": "throw error"
 }
