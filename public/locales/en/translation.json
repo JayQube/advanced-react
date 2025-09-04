@@ -1,8 +1,10 @@
 {
   "Test example": "Test example",
   "Translation": "Translation",
-  "Main page": "Main page",
   "Language": "English",
   "toggle": "Toggle",
-  "Loading": "Loading..."
+  "Loading": "Loading...",
+  "Main page": "Main page",
+  "About page": "About page",
+  "NotFoundPage": "Not found page"
 }

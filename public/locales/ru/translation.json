@@ -1,8 +1,10 @@
 {
   "Test example": "Тестовый пример",
   "Translation": "Перевод",
-  "Main page": "Главная страница",
-  "Language": "русский",
+  "Language": "Русский",
   "toggle": "Переключить",
-  "Loading": "Загрузка"
+  "Loading": "Загрузка",
+  "Main page": "Главная страница",
+  "About page": "О сайте",
+  "NotFoundPage": "Страница не найдена"
 }

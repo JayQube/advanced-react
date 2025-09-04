@@ -52,8 +52,9 @@ module.exports = {
     // Не требует default export в модулях
     'import/prefer-default-export': 'off',
 
-    // Предупреждение для неиспользуемых переменных (не ошибка)
-    'no-unused-vars': 'warn',
+    // Предупреждение для неиспользуемых переменных (не ошибка), игнорирует
+    // нижнее подчеркивание. Затычка для неиспользуемых переменных.
+    'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
 
     // Не требует defaultProps для необязательных пропсов
     'react/require-default-props': 'off',
@@ -85,7 +86,7 @@ module.exports = {
     'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['to'] }],
 
     // Максимальная длина строки 100 символов (игнорирует комментарии)
-    'max-len': ['error', { code: 100, ignoreComments: true }],
+    'max-len': ['error', { code: 100, ignoreComments: true, argsIgnorePattern: '^_' }],
   },
   globals: {
     // Разрешаем использовать кастомную глобальную переменную (например, для dev/prod режимов)
