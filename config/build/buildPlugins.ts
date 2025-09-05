@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 // Функция принимает объект {paths} из файла buildWebpackConfig.ts, который был передан из файла webpack.config.ts
@@ -30,5 +31,10 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     }),
     // Позволяет применять изменения без перезагрузки страницы
     new webpack.HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin({
+      // Команда не открывает страницу с анализом автоматически
+      // Ссылка на страницу будет в терминале
+      openAnalyzer: false
+    }),
   ];
 }
