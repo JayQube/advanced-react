@@ -23,10 +23,18 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
   return (
     <div
+      // data-testid: это метка для тестов
+      data-testid="sidebar"
       // Класс cls.collapsed будет активен если в состоянии collapsed значение true
       className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
-      <Button onClick={onToggle}>{t('toggle')}</Button>
+      <Button
+        // Метка для тестов
+        data-testid="sidebar-toggle"
+        onClick={onToggle}
+      >
+        {t('toggle')}
+      </Button>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LangSwitcher className={cls.lang} />

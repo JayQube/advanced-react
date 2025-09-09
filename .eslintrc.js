@@ -83,7 +83,13 @@ module.exports = {
     'no-underscore-dangle': 'off',
 
     // Проверка i18n - требует использования переводов для строк (только в JSX), игнорирует URL строки
-    'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['to'] }],
+    'i18next/no-literal-string': [
+      'error',
+      {
+        markupOnly: true,
+        ignoreAttribute: ['to', 'data-testid']
+      },
+    ],
 
     // Максимальная длина строки 100 символов (игнорирует комментарии)
     'max-len': ['error', { code: 100, ignoreComments: true, argsIgnorePattern: '^_' }],
@@ -92,4 +98,15 @@ module.exports = {
     // Разрешаем использовать кастомную глобальную переменную (например, для dev/prod режимов)
     __IS_DEV__: true,
   },
+  // Переопределяем правила для файлов с тестами
+  overrides: [
+    {
+      // Ищем файлы с тестами
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      // Выключаем правило no-literal-string
+      rules: {
+        'i18next/no-literal-string': 'off'
+      }
+    }
+  ],
 };
