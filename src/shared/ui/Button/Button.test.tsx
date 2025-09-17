@@ -7,7 +7,7 @@ describe('Button', () => {
     render(<Button>TEST</Button>);
     // screen: глобальный объект, предоставляющий методы для поиска элементов в DOM
     // toBeInTheDocument: проверяет наличие элемента в документе
-    expect(screen.getByText('TEST')).toBeInTheDocument()
+    expect(screen.getByText('TEST')).toBeInTheDocument();
   });
 
   test('Test clear theme', () => {

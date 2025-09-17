@@ -5,6 +5,7 @@ import cls from './Button.module.scss';
 // Список тем для кнопки
 export enum ThemeButton {
   CLEAR = 'clear',
+  OUTLINE = 'outline',
 }
 
 // Это означает, что ButtonProps включает все стандартные атрибуты HTML-кнопки (<button>) из React

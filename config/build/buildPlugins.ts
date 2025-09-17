@@ -34,7 +34,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     new BundleAnalyzerPlugin({
       // Команда не открывает страницу с анализом автоматически
       // Ссылка на страницу будет в терминале
-      openAnalyzer: false
+      openAnalyzer: false,
     }),
   ];
 }

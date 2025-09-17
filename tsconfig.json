@@ -12,6 +12,7 @@
     "jsx": "react-jsx",
     // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
+    "strict": false,
     "moduleResolution": "node",
     // Используется для указания базового каталога, относительно которого будут разрешаться модули 
     // при использовании путей без относительных путей (например, import ... from "module" 
@@ -55,6 +56,8 @@
     }
   },
   "include": [
-    "config/jest/setupTests.tsx", "./src/**/*"
+    "config/jest/setupTests.tsx",
+     "./src/**/*.ts",
+     "./src/**/*.tsx"
   ]
 }

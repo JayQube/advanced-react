@@ -22,7 +22,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   // ^ Вычисляемое свойство:
   // Берется значение AppRoutes.MAIN ('main') и используется как ключ
   [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.NOT_FOUND]: '/*'
+  [AppRoutes.NOT_FOUND]: '/*',
 };
 
 // Это основной объект конфигурации маршрутов. Для каждого маршрута

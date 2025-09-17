@@ -14,6 +14,7 @@ module.exports = {
     'airbnb',
     // Правила для i18n библиотеки i18next
     'plugin:i18next/recommended',
+    // "plugin:storybook/recommended"
   ],
   // Парсер для TypeScript
   parser: '@typescript-eslint/parser',
@@ -87,12 +88,19 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['to', 'data-testid']
+        ignoreAttribute: ['to', 'data-testid'],
       },
     ],
 
     // Максимальная длина строки 100 символов (игнорирует комментарии)
-    'max-len': ['error', { code: 100, ignoreComments: true, argsIgnorePattern: '^_' }],
+    'max-len': [
+      'error',
+      {
+        code: 100,
+        ignoreComments: true,
+        // "argsIgnorePattern": '^_'
+      },
+    ],
   },
   globals: {
     // Разрешаем использовать кастомную глобальную переменную (например, для dev/prod режимов)
@@ -105,8 +113,8 @@ module.exports = {
       files: ['**/src/**/*.test.{ts,tsx}'],
       // Выключаем правило no-literal-string
       rules: {
-        'i18next/no-literal-string': 'off'
-      }
-    }
+        'i18next/no-literal-string': 'off',
+      },
+    },
   ],
 };
