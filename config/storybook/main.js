@@ -1,5 +1,6 @@
 module.exports = {
   stories: [
+    // Путь до файлов со stories
     '../../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [

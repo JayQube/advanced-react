@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import 'app/styles/index.scss';
@@ -7,8 +6,11 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Button, ThemeButton } from './Button';
 
 export default {
+  // Отображается на странице storybook
   title: 'shared/Button',
+  // Название компонента
   component: Button,
+  // Настраивает элементы управления в панели Storybook
   argTypes: {
     backgroundColor: { control: 'color' },
   },
@@ -20,14 +22,12 @@ export const Primary = Template.bind({});
 Primary.args = {
   children: 'Text',
 };
-Primary.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Clear = Template.bind({});
 Clear.args = {
   children: 'Text',
   theme: ThemeButton.CLEAR,
 };
-Clear.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Outline = Template.bind({});
 Outline.args = {
