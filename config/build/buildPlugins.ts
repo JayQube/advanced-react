@@ -6,7 +6,7 @@ import { BuildOptions } from './types/config';
 
 // Функция принимает объект {paths} из файла buildWebpackConfig.ts, который был передан из файла webpack.config.ts
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
-  return [
+  const plugins = [
     // Создаёт HTML-файл (обычно index.html) в папке сборки
     // Автоматически добавляет в него скрипты
     // template - использует указанный HTML-файл как шаблон
@@ -29,12 +29,17 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
+  ];
+
+  if (isDev) {
     // Позволяет применять изменения без перезагрузки страницы
-    new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
+    plugins.push(new webpack.HotModuleReplacementPlugin());
+    plugins.push(new BundleAnalyzerPlugin({
       // Команда не открывает страницу с анализом автоматически
       // Ссылка на страницу будет в терминале
       openAnalyzer: false,
-    }),
-  ];
+    }));
+  }
+
+  return plugins;
 }
