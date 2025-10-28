@@ -1,5 +1,7 @@
 name: linting, testing, building
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+# Запускается от имени
+#run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+# Триггеры. Workflow запускается когда: Код пушится в ветку main, Создается Pull Request в ветку main
 on:
   push:
     branches: [main]
@@ -7,19 +9,25 @@ on:
     branches: [main]
 jobs:
   pipeline:
+    # Запускается на последней версии Ubuntu
     runs-on: ubuntu-latest
+    # Использует матрицу стратегии для тестирования на Node.js версии 22.x
     strategy:
       matrix:
         node-version: [22.x]
 
     steps:
+      # Клонирует репозиторий в среду выполнения
       - uses: actions/checkout@v2
+      # Устанавливает Node.js версии 22.x
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      # Установка зависимостей
       - name: install modules
         run: npm install
+      # Далее наши скрипты из package.json
       - name: build production project
         run: npm run build:prod
       - name: linting typescript
