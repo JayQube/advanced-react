@@ -10,6 +10,7 @@ export enum ButtonTheme {
   BACKGROUND_INVERTED = 'backgroundInverted'
 }
 
+// Enum с классами для размеров
 export enum ButtonSize {
   M = 'size_m',
   L = 'size_l',
@@ -36,12 +37,14 @@ export const Button: FC<ButtonProps> = (props) => {
     // Тема кнопки.  данном случае это 'clear'
     theme = ButtonTheme.BACKGROUND,
     square,
+    // Значение кнопки по умолчанию
     size = ButtonSize.M,
     ...otherProps
   } = props;
 
   const mods: Record<string, boolean> = {
     [cls[theme]]: true,
+    // Кнопка будет квадратной, если в компонент передан пропс square
     [cls.square]: square,
     [cls[size]]: true,
   };

@@ -38,11 +38,15 @@ export const Sidebar = ({ className }: SidebarProps) => {
         onClick={onToggle}
         className={cls.collapseBtn}
         theme={ButtonTheme.BACKGROUND_INVERTED}
+        // Говорим кнопке какого размера быть
         size={ButtonSize.L}
+        // Говорим кнопке, что она квадратная
         square
       >
+        {/* Вид кнопки в зависимости от состояния сайдбара */}
         {collapsed ? '>' : '<'}
       </Button>
+
       <div className={cls.items}>
         <AppLink
           theme={AppLinkTheme.SECONDARY}
@@ -69,6 +73,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LangSwitcher
+        // Говорим компоненту, какой длинны будет текст
           short={collapsed}
           className={cls.lang}
         />

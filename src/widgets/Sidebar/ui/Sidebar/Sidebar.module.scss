@@ -48,6 +48,7 @@
   fill: var(--inverted-primary-color);
 }
 
+// Переопределяем стили если сайдбар свернут
 .collapsed {
   width: var(--sidebar-width-collapsed);
 

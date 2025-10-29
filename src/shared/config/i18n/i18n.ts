@@ -13,7 +13,8 @@ i18n
     // Язык по умолчанию
     fallbackLng: 'ru',
     // Сообщения в консоль от i18n только в dev режиме
-    debug: __IS_DEV__,
+    // debug: __IS_DEV__,
+    debug: false,
 
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
