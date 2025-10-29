@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 describe('Button', () => {
   test('Test render', () => {
@@ -11,7 +11,7 @@ describe('Button', () => {
   });
 
   test('Test clear theme', () => {
-    render(<Button theme={ThemeButton.CLEAR}>TEST</Button>);
+    render(<Button theme={ButtonTheme.CLEAR}>TEST</Button>);
     // toHaveClass: проверяет наличие класса в элементе
     expect(screen.getByText('TEST')).toHaveClass('clear');
     // screen.debug(): выводит DOM-дерево текущего состояния компонента или страницы в консоль.

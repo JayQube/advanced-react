@@ -15,18 +15,13 @@ export const Navbar = ({ className }: NavbarProps) => {
   const { t } = useTranslation();
 
   return (
-  // С помощью хелпера classNames навешиваем стили.
-  // Основной, из файла со стилями
-  // Возможные, типа { hovered: true, disabled: false }
-  // Те, что могут прийти из вне
+    // С помощью хелпера classNames навешиваем стили.
+    // Основной, из файла со стилями
+    // Возможные, типа { hovered: true, disabled: false }
+    // Те, что могут прийти из вне
     <div className={classNames(cls.navbar, {}, [className])}>
       <div className={cls.links}>
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/" className={cls.mainlink}>
-          {t('Main page')}
-        </AppLink>
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/about">
-          {t('About page')}
-        </AppLink>
+        /
       </div>
     </div>
   );
