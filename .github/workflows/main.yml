@@ -18,25 +18,32 @@ jobs:
 
     steps:
       # Клонирует репозиторий в среду выполнения
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       # Устанавливает Node.js версии 22.x
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
       # Установка зависимостей
       - name: install modules
-        run: npm install
+        run: npm ci
       # Далее наши скрипты из package.json
       - name: build production project
         run: npm run build:prod
+        if: always()
       - name: linting typescript
         run: npm run lint:ts
+        if: always()
       - name: linting css
         run: npm run lint:scss
+        if: always()
       - name: unit testing
         run: npm run test:unit
+        if: always()
       - name: build storybook
         run: npm run storybook:build
+        if: always()
       - name: screenshot testing
         run: npm run test:ui:ci
+        if: always()
