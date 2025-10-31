@@ -32,6 +32,7 @@ module.exports = {
     'react', // Добавляет React-специфичные правила
     '@typescript-eslint', // Добавляет TypeScript-специфичные правила
     'i18next', // Правила для интернационализации (i18next)
+    'react-hooks',
   ],
   rules: {
     // Отступы в JSX (2 пробела)
@@ -101,6 +102,10 @@ module.exports = {
         // "argsIgnorePattern": '^_'
       },
     ],
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
   },
   globals: {
     // Разрешаем использовать кастомную глобальную переменную (например, для dev/prod режимов)
@@ -110,10 +115,11 @@ module.exports = {
   overrides: [
     {
       // Ищем файлы с тестами
-      files: ['**/src/**/*.test.{ts,tsx}'],
+      files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
       // Выключаем правило no-literal-string
       rules: {
         'i18next/no-literal-string': 'off',
+        'max-len': 'off',
       },
     },
   ],

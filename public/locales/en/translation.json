@@ -10,5 +10,7 @@
   "NotFoundPage": "Not found page",
   "An unexpected error occurred": "An unexpected error occurred",
   "Reload page": "Reload page",
-  "throw error": "throw error"
+  "throw error": "throw error",
+  "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget purus in neque fermentum euismod vitae at augue.",
+  "Enter": "Enter"
 }

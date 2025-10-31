@@ -10,5 +10,7 @@
   "NotFoundPage": "Страница не найдена",
   "An unexpected error occurred": "Произошла непредвиденная ошибка",
   "Reload page": "Обновить страницу",
-  "throw error": "throw error"
+  "throw error": "throw error",
+  "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget purus in neque fermentum euismod vitae at augue.",
+  "Enter": "Войти"
 }
