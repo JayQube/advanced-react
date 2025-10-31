@@ -1,13 +1,17 @@
 .Modal {
   position: fixed;
   z-index: -1;
+
+  // Временно!
   color: var(--primary-color);
   opacity: 0;
+
+  // Игнорирует все события
   pointer-events: none;
   inset: 0;
 }
 
-// ГНе правильно
+// Временно!
 .Modal.dark {
   --bg-color: #090949;
   --primary-color: #04ff04;

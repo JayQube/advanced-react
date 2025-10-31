@@ -22,7 +22,9 @@ export const Modal = (props: ModalProps) => {
   } = props;
 
   const [isClosing, setIsClosing] = useState(false);
+  // Получаем тип, который возвращает функция setTimeout
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  // Временно!
   const { theme } = useTheme();
 
   const closeHandler = useCallback(() => {
@@ -59,6 +61,7 @@ export const Modal = (props: ModalProps) => {
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
+    // Временно!
     [cls[theme]]: true,
   };
 
