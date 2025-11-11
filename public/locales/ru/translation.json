@@ -14,5 +14,7 @@
   "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget purus in neque fermentum euismod vitae at augue.",
   "Enter": "Войти",
   "increment": "Инкремент",
-  "decrement": "Декремент"
+  "decrement": "Декремент",
+  "Enter Username": "Введите имя",
+  "Enter password": "Введите пароль"
 }

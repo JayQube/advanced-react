@@ -11,6 +11,7 @@ interface ModalProps {
   children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 
 export const Modal = (props: ModalProps) => {
@@ -19,13 +20,23 @@ export const Modal = (props: ModalProps) => {
     children,
     isOpen,
     onClose,
+    lazy,
   } = props;
 
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   // Получаем тип, который возвращает функция setTimeout
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   // Временно!
   const { theme } = useTheme();
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+    // При размонтировании - убираем Portal из DOM
+    return () => setIsMounted(false);
+  }, [isOpen]);
 
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -61,9 +72,14 @@ export const Modal = (props: ModalProps) => {
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
-    // Временно!
-    // [cls[theme]]: true,
   };
+
+  // Для первоначального рендера!
+  // Если указан пропс lazy и компонент не вмонтирован (false), модалка
+  // не появится в DOM
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
