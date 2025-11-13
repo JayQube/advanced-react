@@ -4,18 +4,18 @@ import cls from './Button.module.scss';
 
 // Список тем для кнопки
 export enum ButtonTheme {
-  CLEAR = 'clear',
-  CLEAR_INVERTED = 'clearInverted',
-  OUTLINE = 'outline',
-  BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted'
+  CLEAR = 'clear', // eslint-disable-line no-unused-vars
+  CLEAR_INVERTED = 'clearInverted', // eslint-disable-line no-unused-vars
+  OUTLINE = 'outline', // eslint-disable-line no-unused-vars
+  BACKGROUND = 'background', // eslint-disable-line no-unused-vars
+  BACKGROUND_INVERTED = 'backgroundInverted' // eslint-disable-line no-unused-vars
 }
 
 // Enum с классами для размеров
 export enum ButtonSize {
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl',
+  M = 'size_m', // eslint-disable-line no-unused-vars
+  L = 'size_l', // eslint-disable-line no-unused-vars
+  XL = 'size_xl', // eslint-disable-line no-unused-vars
 }
 
 // Это означает, что ButtonProps включает все стандартные атрибуты HTML-кнопки (<button>) из React
@@ -25,6 +25,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
   square?: boolean;
   size?: ButtonSize;
+  disabled?: boolean;
 }
 
 // Тип FC для того чтобы можно было использовать пропс children
@@ -40,6 +41,7 @@ export const Button: FC<ButtonProps> = (props) => {
     square,
     // Значение кнопки по умолчанию
     size = ButtonSize.M,
+    disabled,
     ...otherProps
   } = props;
 
@@ -48,13 +50,15 @@ export const Button: FC<ButtonProps> = (props) => {
     // Кнопка будет квадратной, если в компонент передан пропс square
     [cls.square]: square,
     [cls[size]]: true,
+    [cls.disabled]: disabled,
   };
 
   return (
     <button
       type="button"
       className={classNames(cls.button, mods, [className])}
-      {...otherProps}
+      disabled={disabled}
+      {...otherProps} // eslint-disable-line react/jsx-props-no-spreading
     >
       {children}
     </button>

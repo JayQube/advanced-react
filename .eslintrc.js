@@ -97,7 +97,7 @@ module.exports = {
     'max-len': [
       'error',
       {
-        code: 100,
+        code: 110,
         ignoreComments: true,
         // "argsIgnorePattern": '^_'
       },
@@ -107,6 +107,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
+    'no-console': 'off',
   },
   globals: {
     // Разрешаем использовать кастомную глобальную переменную (например, для dev/prod режимов)
