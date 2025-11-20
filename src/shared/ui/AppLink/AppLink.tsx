@@ -5,9 +5,9 @@ import cls from './AppLink.module.scss';
 
 // Перечисление дополнительных классов для стилей
 export enum AppLinkTheme {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-  RED = 'red',
+  PRIMARY = 'primary', // eslint-disable-line no-unused-vars
+  SECONDARY = 'secondary', // eslint-disable-line no-unused-vars
+  RED = 'red', // eslint-disable-line no-unused-vars
 }
 
 // LinkProps это типы для встроеного компонента Link из react-router-dom

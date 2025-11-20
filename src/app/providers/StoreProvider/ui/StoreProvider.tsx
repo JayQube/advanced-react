@@ -1,4 +1,4 @@
-import { DeepPartial } from '@reduxjs/toolkit';
+import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import { StateSchema } from '../config/StateSchema';
@@ -10,6 +10,8 @@ interface StoreProviderProps {
   // опциональными, включая вложенные объекты.
   // Не все поля StateSchema обязательны
   initialState?: DeepPartial<StateSchema>;
+  // Для тестов и storybook
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }
 
 export const StoreProvider = (props: StoreProviderProps) => {
@@ -18,13 +20,18 @@ export const StoreProvider = (props: StoreProviderProps) => {
     // По умолчанию пуст. Позволяет передать начальное состояние при
     // создании store
     initialState,
+    // Для тестов и storybook
+    asyncReducers,
   } = props;
 
   // Создаем стор
   // В createReduxStore можно передать начальное состояние
   // Как пример передачи начального состояния, для редюсеров
   // const store = createReduxStore({ counter: { value: 10 } });
-  const store = createReduxStore(initialState as StateSchema);
+  const store = createReduxStore(
+    initialState as StateSchema,
+    asyncReducers as ReducersMapObject<StateSchema>,
+  );
 
   return (
     <Provider store={store}>

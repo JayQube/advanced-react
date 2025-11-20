@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import 'app/styles/index.scss';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import React from 'react';
 import { Button, ButtonSize, ButtonTheme } from './Button';
 
 export default {
@@ -18,32 +17,6 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-// interface ButtonStoryArgs {
-//   children: React.ReactNode;
-//   theme?: ButtonTheme;
-//   size?: ButtonSize;
-//   square?: boolean;
-// }
-
-// const Template: ComponentStory<typeof Button> = (args: ButtonStoryArgs) => {
-//   const {
-//     children,
-//     theme,
-//     size,
-//     square,
-//   } = args;
-
-//   return (
-//     <Button
-//       theme={theme}
-//       size={size}
-//       square={square}
-//     >
-//       {children}
-//     </Button>
-//   );
-// };
 
 export const Primary = Template.bind({});
 Primary.args = {

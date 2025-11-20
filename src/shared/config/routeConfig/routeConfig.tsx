@@ -5,9 +5,9 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 
 // Имена маршрутов
 export enum AppRoutes {
-  MAIN = 'main',
-  ABOUT = 'about',
-  NOT_FOUND = 'not_found'
+  MAIN = 'main', // eslint-disable-line no-unused-vars
+  ABOUT = 'about', // eslint-disable-line no-unused-vars
+  NOT_FOUND = 'not_found' // eslint-disable-line no-unused-vars
 }
 
 // Объект, который связывает каждый маршрут из enum с соответствующим

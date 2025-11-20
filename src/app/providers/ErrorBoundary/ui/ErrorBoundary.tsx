@@ -19,7 +19,7 @@ class ErrorBoundary
     this.state = { hasError: false }; // Изначально ошибок нет
   }
 
-  static getDerivedStateFromError(error: Error) {
+  static getDerivedStateFromError(_error: Error) {
     return { hasError: true }; // Обновляем состояние при ошибке
   }
 
