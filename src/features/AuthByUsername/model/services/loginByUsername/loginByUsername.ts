@@ -41,7 +41,7 @@ export const loginByUsername = createAsyncThunk<
     } catch (e) {
       console.log(e);
       // Передаем сообщение с описание ошибки
-      return thunkAPI.rejectWithValue('Error');
+      return thunkAPI.rejectWithValue('error');
     }
   },
 );
