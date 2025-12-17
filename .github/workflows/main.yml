@@ -18,10 +18,10 @@ jobs:
 
     steps:
       # Клонирует репозиторий в среду выполнения
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
       # Устанавливает Node.js версии 22.x
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       # Установка зависимостей
