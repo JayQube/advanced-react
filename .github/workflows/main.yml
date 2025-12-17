@@ -10,7 +10,7 @@ on:
 jobs:
   pipeline:
     # Запускается на последней версии Ubuntu
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     # Использует матрицу стратегии для тестирования на Node.js версии 22.x
     strategy:
       matrix:
@@ -18,10 +18,10 @@ jobs:
 
     steps:
       # Клонирует репозиторий в среду выполнения
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # Устанавливает Node.js версии 22.x
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       # Установка зависимостей
