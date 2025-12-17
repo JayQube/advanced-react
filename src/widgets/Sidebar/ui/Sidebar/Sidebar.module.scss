@@ -32,23 +32,6 @@
   margin-left: 30px;
 }
 
-.item {
-  display: flex;
-  align-items: center;
-  height: var(--font-line-m);
-  margin-top: 10px;
-}
-
-.link {
-  margin-left: 10px;
-  opacity: 1;
-  transition: 1s opacity;
-}
-
-.icon {
-  fill: var(--inverted-primary-color);
-}
-
 // Переопределяем стили если сайдбар свернут
 .collapsed {
   width: var(--sidebar-width-collapsed);
@@ -60,11 +43,5 @@
 
   .lang {
     margin-left: 0;
-  }
-
-  .link {
-    width: 0;
-    opacity: 0;
-    transition: 0s opacity;
   }
 }

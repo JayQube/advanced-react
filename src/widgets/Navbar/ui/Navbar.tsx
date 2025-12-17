@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 // импортируем классы из файла со стилями
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
@@ -15,7 +15,7 @@ interface NavbarProps {
 }
 
 // Деструктуризируем пропсы и извлекаем className с типом NavbarProps
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
   // Пробуем получить данные пользователя
@@ -73,4 +73,4 @@ export const Navbar = ({ className }: NavbarProps) => {
       />
     </div>
   );
-};
+});
