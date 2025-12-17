@@ -43,19 +43,6 @@ jobs:
       - name: build storybook
         run: npm run storybook:build
         if: always()
-      # - name: screenshot testing
-      #   run: npm run test:ui:ci
-      - name: Setup for Loki tests
-        run: |
-          # Установка Chrome
-          sudo apt-get update
-          sudo apt-get install -y wget
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-
-      - name: Run visual tests
-        run: |
-          # Используем локальный Chrome
-          LOKI_TEST_RUNNER=chrome npm run test:ui:ci
+      - name: screenshot testing
+        run: npm run test:ui:ci
+        if: always()
