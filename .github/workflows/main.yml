@@ -10,7 +10,7 @@ on:
 jobs:
   pipeline:
     # Запускается на последней версии Ubuntu
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     # Использует матрицу стратегии для тестирования на Node.js версии 22.x
     strategy:
       matrix:
@@ -18,10 +18,10 @@ jobs:
 
     steps:
       # Клонирует репозиторий в среду выполнения
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
       # Устанавливает Node.js версии 22.x
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       # Установка зависимостей
@@ -44,21 +44,5 @@ jobs:
         run: npm run storybook:build
         if: always()
       - name: screenshot testing
-        run: |
-          # Установка зависимостей для рендеринга
-          sudo apt-get update
-          sudo apt-get install -y \
-            libnss3 \
-            libatk-bridge2.0-0 \
-            libdrm-dev \
-            libxkbcommon-dev \
-            libgbm-dev \
-            libasound2 \
-            fonts-liberation \
-            fonts-noto-color-emoji
-          
-          # Запуск тестов
-          npm run test:ui:ci || npm run test:ui:ci-update
-        env:
-          # Отключаем sandbox для Chrome в CI
-          LOKI_CHROME_FLAGS: "--no-sandbox --disable-dev-shm-usage"
+        run: npm run test:ui:ci
+        if: always()
