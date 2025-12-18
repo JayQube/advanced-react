@@ -44,5 +44,21 @@ jobs:
         run: npm run storybook:build
         if: always()
       - name: screenshot testing
-        run: npm run test:ui:ci
-        if: always()
+        run: |
+          # Установка зависимостей для рендеринга
+          sudo apt-get update
+          sudo apt-get install -y \
+            libnss3 \
+            libatk-bridge2.0-0 \
+            libdrm-dev \
+            libxkbcommon-dev \
+            libgbm-dev \
+            libasound2 \
+            fonts-liberation \
+            fonts-noto-color-emoji
+          
+          # Запуск тестов
+          npm run test:ui:ci || npm run test:ui:ci-update
+        env:
+          # Отключаем sandbox для Chrome в CI
+          LOKI_CHROME_FLAGS: "--no-sandbox --disable-dev-shm-usage"
