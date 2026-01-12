@@ -24,7 +24,7 @@ export default (env: BuildEnv) => {
   const mode: BuildMode = env.mode || 'development';
   const PORT: number = env.port || 3000;
   // Url для api запросов берется либо из env файла, либо задается локальным
-  const apiUrl = env.apiUrl || 'localhost:8000';
+  const apiUrl = env.apiUrl || 'http://localhost:8000';
 
   const isDev: boolean = mode === 'development';
 

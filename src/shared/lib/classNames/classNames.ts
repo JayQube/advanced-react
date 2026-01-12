@@ -2,7 +2,7 @@
 // ключи — строки (имена классов),
 // значения — boolean или string (если true или строка — класс добавляется, если
 // false или undefined/null — не добавляется).
-type Mods = Record<string, boolean | string>
+export type Mods = Record<string, boolean | string | undefined>
 
 // mods: Mods = {} - по умолчанию пустой объект
 // mods - Объект модификаторов (например, { hovered: true, disabled: false })
@@ -11,7 +11,11 @@ type Mods = Record<string, boolean | string>
 // В additional описание класса содержится в компоненте в котором вызывается компонент
 // для которого применяются стили
 // Функция возвращает строку
-export function classNames(cls: string, mods: Mods = {}, additional: string[] = []): string {
+export function classNames(
+  cls: string,
+  mods: Mods = {},
+  additional: Array<string | undefined> = [],
+): string {
   return [
     // Основной класс
     cls,

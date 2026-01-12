@@ -1,7 +1,7 @@
 import {
   ButtonHTMLAttributes, memo, ReactNode,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 // Список тем для кнопки
@@ -40,7 +40,7 @@ export const Button = memo((props: ButtonProps) => {
     // То, что находится между <Button>...</Button>
     children,
     // Тема кнопки.  данном случае это 'clear'
-    theme = ButtonTheme.BACKGROUND,
+    theme = ButtonTheme.OUTLINE,
     square,
     // Значение кнопки по умолчанию
     size = ButtonSize.M,
@@ -48,7 +48,7 @@ export const Button = memo((props: ButtonProps) => {
     ...otherProps
   } = props;
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls[theme]]: true,
     // Кнопка будет квадратной, если в компонент передан пропс square
     [cls.square]: square,

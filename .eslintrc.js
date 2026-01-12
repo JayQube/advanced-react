@@ -108,6 +108,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
     'no-console': 'off',
+    'no-undef': 'off',
   },
   globals: {
     // Разрешаем использовать кастомную глобальную переменную (например, для dev/prod режимов)
