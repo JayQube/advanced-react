@@ -21,6 +21,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     setCollapsed((prev) => !prev);
   };
 
+  // Проходимся по массиву данных из model\items.ts и рендерим каждый объект
+  // в компонент SidebarItem
   const itemsList = useMemo(() => SidebarItemsList.map((item) => (
     <SidebarItem
       item={item}

@@ -6,10 +6,12 @@ import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
+// import { useNavigate } from 'react-router-dom';
 
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   // Делаем проверку
   useEffect(() => {

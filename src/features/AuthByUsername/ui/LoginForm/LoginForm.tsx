@@ -46,6 +46,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
   const onLoginClick = useCallback(async () => {
     const result = await dispatch(loginByUsername({ username, password }));
+    // Если авторизация успешна, вызываем функцию, которая закроет модалку
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
     }

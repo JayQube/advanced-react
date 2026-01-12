@@ -5,7 +5,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 // Функция принимает объект {paths} из файла buildWebpackConfig.ts, который был передан из файла webpack.config.ts
-export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
     // Создаёт HTML-файл (обычно index.html) в папке сборки
     // Автоматически добавляет в него скрипты
@@ -28,6 +28,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     // Позволяет прокидывать глобальные переменные через все приложение
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
     }),
   ];
 
