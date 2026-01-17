@@ -4,6 +4,11 @@ import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 
+// AppRouteProps расширяет пропсы RouteProps
+type AppRouteProps = RouteProps & {
+  authOnly?: boolean;
+}
+
 // Имена маршрутов
 export enum AppRoutes {
   MAIN = 'main', // eslint-disable-line no-unused-vars
@@ -35,7 +40,7 @@ export const RoutePath: Record<AppRoutes, string> = {
 // path - URL-путь (берется из RoutePath)
 // element - React-компонент, который будет отрисован
 // при переходе по этому пути
-export const routeConfig: Record<AppRoutes, RouteProps> = {
+export const routeConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath[AppRoutes.MAIN],
     element: <MainPage />,
@@ -47,6 +52,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.PROFILE]: {
     path: RoutePath[AppRoutes.PROFILE],
     element: <ProfilePage />,
+    authOnly: true,
   },
   // last
   [AppRoutes.NOT_FOUND]: {

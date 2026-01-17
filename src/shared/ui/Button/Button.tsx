@@ -9,6 +9,7 @@ export enum ButtonTheme {
   CLEAR = 'clear', // eslint-disable-line no-unused-vars
   CLEAR_INVERTED = 'clearInverted', // eslint-disable-line no-unused-vars
   OUTLINE = 'outline', // eslint-disable-line no-unused-vars
+  OUTLINE_RED = 'outline_red', // eslint-disable-line no-unused-vars
   BACKGROUND = 'background', // eslint-disable-line no-unused-vars
   BACKGROUND_INVERTED = 'backgroundInverted' // eslint-disable-line no-unused-vars
 }

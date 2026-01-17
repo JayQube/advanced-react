@@ -20,8 +20,12 @@ export const fetchProfileData = createAsyncThunk<
   async (_, thunkApi) => {
     const { extra, rejectWithValue } = thunkApi;
     try {
-      // Ожидаем что сервер вернет нам объект User
+      // Ожидаем что сервер вернет нам объект Profile
       const response = await extra.api.get<Profile>('/profile');
+
+      if (!response.data) {
+        throw new Error('No data received');
+      }
 
       return response.data;
     } catch (e) {

@@ -24,5 +24,13 @@
   "Profile": "Profile",
   "Edit": "Edit",
   "Name": "Name",
-  "Lastname": "Lastname"
+  "Lastname": "Lastname",
+  "Some issue when loading profile": "Some issue when loading profile",
+  "Try refresh page": "Try refresh page",
+  "Abort": "Abort",
+  "Save": "Save",
+  "Age": "Age",
+  "City": "City",
+  "User Name": "User Name",
+  "Avatar url": "Avatar url"
 }
