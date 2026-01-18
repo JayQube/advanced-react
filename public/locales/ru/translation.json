@@ -32,5 +32,10 @@
   "Age": "Возраст",
   "City": "Город",
   "User Name": "Псевдоним",
-  "Avatar url": "ССылка на аватар"
+  "Avatar url": "ССылка на аватар",
+  "Uncorrect age": "Некорректный возраст",
+  "First and last name are required": "Имя и фамилия обязательны",
+  "No data provided": "Данные не указаны",
+  "Invalid region": "Некорректный регион",
+  "Server error while saving": "Серверная ошибка при сохранении"
 }

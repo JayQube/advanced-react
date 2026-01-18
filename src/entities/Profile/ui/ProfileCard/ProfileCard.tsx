@@ -117,7 +117,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         readonly={readonly}
       />
       <Input
-        value={data?.avatar}
+        value={__PROJECT__ !== 'storybook' ? data?.avatar : 'some avatar url'}
         placeholder={t('Avatar url')}
         className={cls.input}
         onChange={onChangeAvatar}

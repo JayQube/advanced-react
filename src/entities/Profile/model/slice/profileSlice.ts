@@ -22,6 +22,7 @@ export const profileSlice = createSlice({
     // В state.form измененные данные. В state.data данные с сервера
     cancelEdit: (state) => {
       state.readonly = true;
+      state.validateErrors = undefined;
       state.form = state.data;
     },
     // Этот редюсер отрабатывает, когда пользователь вводит что-то в инпуты
@@ -57,7 +58,7 @@ export const profileSlice = createSlice({
       // --------------- fetchProfileData --------------------- //
       // --------------- updateProfileData -------------------- //
       .addCase(updateProfileData.pending, (state) => {
-        state.error = undefined;
+        state.validateErrors = undefined;
         state.isLoading = true;
       })
       .addCase(updateProfileData.fulfilled, (
@@ -68,10 +69,11 @@ export const profileSlice = createSlice({
         state.data = action.payload;
         state.form = action.payload;
         state.readonly = true;
+        state.validateErrors = undefined;
       })
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.validateErrors = action.payload;
       });
     // --------------- updateProfileData -------------------- //
   },

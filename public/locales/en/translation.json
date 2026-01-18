@@ -32,5 +32,10 @@
   "Age": "Age",
   "City": "City",
   "User Name": "User Name",
-  "Avatar url": "Avatar url"
+  "Avatar url": "Avatar url",
+  "Uncorrect age": "Uncorrect age",
+  "First and last name are required": "First and last name are required",
+  "No data provided": "No data provided",
+  "Invalid region": "Invalid region",
+  "Server error while saving": "Server error while saving"
 }

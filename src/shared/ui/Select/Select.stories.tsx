@@ -10,6 +10,7 @@ export default {
   },
 } as ComponentMeta<typeof Select>;
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 export const Primary = Template.bind({});
