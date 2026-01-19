@@ -5,4 +5,7 @@ export interface User {
 
 export interface UserSchema {
   authData?: User;
+
+  // Флаг для проверки того, что стейт юзера инициализировался
+  _isUserStateInited: boolean;
 }

@@ -5,7 +5,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 
 // AppRouteProps расширяет пропсы RouteProps
-type AppRouteProps = RouteProps & {
+export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
 }
 
@@ -40,7 +40,8 @@ export const RoutePath: Record<AppRoutes, string> = {
 // path - URL-путь (берется из RoutePath)
 // element - React-компонент, который будет отрисован
 // при переходе по этому пути
-export const routeConfig: Record<AppRoutes, AppRouteProps> = {
+// authOnly - флаг для защищенных маршрутов
+export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath[AppRoutes.MAIN],
     element: <MainPage />,

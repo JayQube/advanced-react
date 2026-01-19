@@ -3,6 +3,10 @@ export {
 } from './model/selectors/getUserAuthData/getUserAuthData';
 
 export {
+
+} from './model/selectors/getUserStateInited/getUserStateInited';
+
+export {
   userActions,
   userReducer,
 } from './model/slice/userSlice';

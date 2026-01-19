@@ -3,6 +3,7 @@ import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { User, UserSchema } from '../types/user';
 
 const initialState: UserSchema = {
+  _isUserStateInited: false,
 };
 
 export const userSlice = createSlice({
@@ -22,6 +23,8 @@ export const userSlice = createSlice({
         // JSON.parse() превращает строку в объект
         state.authData = JSON.parse(user);
       }
+      // Подтверждаем, что стейт юзера инициализировался
+      state._isUserStateInited = true;
     },
     // Очищаем стейт user и удаляем данные из localstorage
     logout: (state) => {
