@@ -7,13 +7,11 @@ import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from 'entities/User';
 import { getUserStateInited } from 'entities/User/model/selectors/getUserStateInited/getUserStateInited';
-// import { useNavigate } from 'react-router-dom';
 
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
   const isUserStateInited = useSelector(getUserStateInited);
-  console.log(isUserStateInited);
 
   useEffect(() => {
     // Проверяем есть ли юзер в localstorage. Если есть, то добавляем данные в стейт
