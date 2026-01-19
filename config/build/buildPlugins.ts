@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 // Функция принимает объект {paths} из файла buildWebpackConfig.ts, который был передан из файла webpack.config.ts
@@ -37,6 +38,7 @@ export function buildPlugins({
 
   if (isDev) {
     // Позволяет применять изменения без перезагрузки страницы
+    plugins.push(new ReactRefreshWebpackPlugin());
     plugins.push(new webpack.HotModuleReplacementPlugin());
     plugins.push(new BundleAnalyzerPlugin({
       // Команда не открывает страницу с анализом автоматически

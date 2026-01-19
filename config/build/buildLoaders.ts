@@ -1,10 +1,13 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   // Так как имеет значение в каком порядке лоадеры возвращаются в массиве, то лоадеры мы выносим
   // в переменные
+
+  const { isDev } = options;
 
   // Устанавливаем пакет через npm - npm i @svgr/webpack --save-dev
   const svgLoader = {
@@ -13,26 +16,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     use: ['@svgr/webpack'],
   };
 
-  const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        // Настройки для babel-plugin-i18next-extract
-        // plugins: [
-        //     [
-        //         'i18next-extract',
-        //         {
-        //             locales: ['ru', 'en'],
-        //             keyAsDefaultValue: true,
-        //         },
-        //     ],
-        // ],
-      },
-    },
-  };
+  const babelLoader = buildBabelLoader(options);
 
   const cssLoader = buildCssLoader(isDev);
 
