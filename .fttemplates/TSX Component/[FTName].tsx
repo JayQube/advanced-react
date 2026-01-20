@@ -18,7 +18,7 @@ export const [FTName] = (props: [FTName]Props) => {
   const mods: Mods = {};
 
   return (
-    <div className={classNames(cls.[FTName], {}, [className])}>
+    <div className={classNames(cls.[FTName], mods, [className])}>
       <div />
     </div>
   );

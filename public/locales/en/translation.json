@@ -5,8 +5,8 @@
   "ShortLanguage": "En",
   "toggle": "Toggle",
   "Loading": "Loading...",
-  "Main page": "Main page",
-  "About page": "About page",
+  "Main page": "Main",
+  "About page": "About",
   "NotFoundPage": "Not found page",
   "An unexpected error occurred": "An unexpected error occurred",
   "Reload page": "Reload page",
@@ -37,5 +37,7 @@
   "First and last name are required": "First and last name are required",
   "No data provided": "No data provided",
   "Invalid region": "Invalid region",
-  "Server error while saving": "Server error while saving"
+  "Server error while saving": "Server error while saving",
+  "Articles": "Articles",
+  "Article": "Article"
 }

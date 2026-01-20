@@ -1,21 +1,23 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { [FTName] } from './[FTName]';
+import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
-  title: 'НАЗВАНИЕ_СЛОЯ/[FTName]',
-  component: [FTName],
+  title: 'pages/ArticleDetailsPage',
+  component: ArticleDetailsPage,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof [FTName]>;
+} as ComponentMeta<typeof ArticleDetailsPage>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof [FTName]> = (args) => <[FTName] {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+
+};
 
 export const Dark = Template.bind({});
 Dark.args = {};

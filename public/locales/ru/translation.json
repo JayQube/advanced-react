@@ -5,7 +5,7 @@
   "ShortLanguage": "Ру",
   "toggle": "Переключить",
   "Loading": "Загрузка",
-  "Main page": "Главная страница",
+  "Main page": "Главная",
   "About page": "О сайте",
   "NotFoundPage": "Страница не найдена",
   "An unexpected error occurred": "Произошла непредвиденная ошибка",
@@ -37,5 +37,7 @@
   "First and last name are required": "Имя и фамилия обязательны",
   "No data provided": "Данные не указаны",
   "Invalid region": "Некорректный регион",
-  "Server error while saving": "Серверная ошибка при сохранении"
+  "Server error while saving": "Серверная ошибка при сохранении",
+  "Articles": "Статьи",
+  "Article": "Статья"
 }

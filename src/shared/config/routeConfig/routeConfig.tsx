@@ -3,6 +3,8 @@ import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
+import { ArticlesPage } from 'pages/ArticlesPage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 
 // AppRouteProps расширяет пропсы RouteProps
 export type AppRoutesProps = RouteProps & {
@@ -14,6 +16,9 @@ export enum AppRoutes {
   MAIN = 'main', // eslint-disable-line no-unused-vars
   ABOUT = 'about', // eslint-disable-line no-unused-vars
   PROFILE = 'profile', // eslint-disable-line no-unused-vars
+  ARTICLES = 'articles', // eslint-disable-line no-unused-vars
+  ARTICLES_DETAILS = 'articles_details', // eslint-disable-line no-unused-vars
+
   // last
   NOT_FOUND = 'not_found' // eslint-disable-line no-unused-vars
 }
@@ -31,6 +36,8 @@ export const RoutePath: Record<AppRoutes, string> = {
   // Берется значение AppRoutes.MAIN ('main') и используется как ключ
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.PROFILE]: '/profile',
+  [AppRoutes.ARTICLES]: '/articles',
+  [AppRoutes.ARTICLES_DETAILS]: '/articles/', // + :id
   // last
   [AppRoutes.NOT_FOUND]: '*',
 };
@@ -53,6 +60,16 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.PROFILE]: {
     path: RoutePath[AppRoutes.PROFILE],
     element: <ProfilePage />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLES]: {
+    path: RoutePath[AppRoutes.ARTICLES],
+    element: <ArticlesPage />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLES_DETAILS]: {
+    path: `${RoutePath[AppRoutes.ARTICLES_DETAILS]}:id`,
+    element: <ArticleDetailsPage />,
     authOnly: true,
   },
   // last

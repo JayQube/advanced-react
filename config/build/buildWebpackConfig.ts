@@ -23,6 +23,8 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
       path: paths.build,
       // clean: true - автоматически очищает папку вывода перед новой сборкой
       clean: true,
+      // publicPath - настройка, которая определяет базовый путь для всех ассетов (в данном случае фиксили маршруты)
+      publicPath: '/',
     },
     // Пробрасываем объект {paths} из файла webpack.config.ts в функцию buildPlugins
     plugins: buildPlugins(options),
