@@ -5,10 +5,10 @@ import { memo, useCallback } from 'react';
 import { Currency } from '../../model/types/currency';
 
 interface CurrencySelectProps {
-    className?: string;
-    value?: Currency;
-    onChange?: (_value: Currency) => void;
-    readonly?: boolean;
+  className?: string;
+  value?: Currency;
+  onChange?: (_value: Currency) => void;
+  readonly?: boolean;
 }
 
 const options = [

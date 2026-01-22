@@ -13,12 +13,18 @@ export enum TextAlign {
   CENTER = 'center' // eslint-disable-line no-unused-vars
 }
 
+export enum TextSize {
+  M = 'size_m', // eslint-disable-line no-unused-vars
+  L = 'size_l', // eslint-disable-line no-unused-vars
+}
+
 interface TextProps {
   className?: string;
   title?: string;
   text?: string;
   theme?: TextTheme;
   align?: TextAlign;
+  size?: TextSize;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -29,11 +35,13 @@ export const Text = memo((props: TextProps) => {
     // Присваиваем тему по умолчанию, если не отправили извне
     theme = TextTheme.PRIMARY,
     align = TextAlign.LEFT,
+    size = TextSize.M,
   } = props;
 
   const mods: Mods = {
     [cls[theme]]: true,
     [cls[align]]: true,
+    [cls[size]]: true,
   };
 
   return (

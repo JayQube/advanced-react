@@ -1,7 +1,8 @@
+import { ArticleDetails } from 'entities/Article';
 import { memo } from 'react';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-// import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -13,14 +14,24 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     className,
   } = props;
 
-  // const dispatch = useAppDispatch();
   const { t } = useTranslation();
+  const { id } = useParams<{id: string}>();
 
   const mods: Mods = {};
 
+  if (!id && __PROJECT__ !== 'storybook') {
+    return (
+      <div className={classNames(cls.ArticleDetailsPage, mods, [className])}>
+        {t('Article not found')}
+      </div>
+    );
+  }
+
   return (
     <div className={classNames(cls.ArticleDetailsPage, mods, [className])}>
-      {t('Article')}
+      <ArticleDetails
+        id={id || '1'}
+      />
     </div>
   );
 };

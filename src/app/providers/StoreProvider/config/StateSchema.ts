@@ -8,6 +8,7 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { CombinedState } from 'redux';
 import { To, NavigateOptions } from 'react-router-dom';
+import { ArticleDetailsSchema } from 'entities/Article';
 
 // Перечень всех схем для стора
 export interface StateSchema {
@@ -17,6 +18,7 @@ export interface StateSchema {
   // Асинхронные редюсеры
   loginForm?: LoginSchema
   profile?: ProfileSchema
+  articleDetails?: ArticleDetailsSchema
 }
 
 // Достаем названия ключей из StateSchema
