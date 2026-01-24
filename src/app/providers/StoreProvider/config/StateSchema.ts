@@ -9,6 +9,7 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { CombinedState } from 'redux';
 import { To, NavigateOptions } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 
 // Перечень всех схем для стора
 export interface StateSchema {
@@ -19,6 +20,7 @@ export interface StateSchema {
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
+  articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
 // Достаем названия ключей из StateSchema
