@@ -102,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "12345",
+      "id": "sgZRvyV"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "1111",
+      "id": "OsZ8x8i"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "88888",
+      "id": "N64PTPF"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "eee",
+      "id": "7NGwV-6"
     }
   ],
   "users": [
@@ -110,7 +134,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+      "avatar": "https://avatars.mds.yandex.net/i?id=78b3b6c7f4c61af1e02a6e9a85bd9254_l-4575620-images-thumbs&n=13"
     },
     {
       "id": "2",
@@ -120,14 +144,28 @@
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://avatars.mds.yandex.net/i?id=78b3b6c7f4c61af1e02a6e9a85bd9254_l-4575620-images-thumbs&n=13"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "admin",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://avatars.mds.yandex.net/i?id=78b3b6c7f4c61af1e02a6e9a85bd9254_l-4575620-images-thumbs&n=13"
+    },
+    {
+      "id": "2",
+      "first": "jgh",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "user",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ]
 }

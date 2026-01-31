@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { CommentList } from './CommentList';
 
 export default {
-  title: 'НАЗВАНИЕ_СЛОЯ/CommentList',
+  title: 'entities/Comment/CommentList',
   component: CommentList,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -15,8 +15,40 @@ export default {
 const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+  comments: [
+    {
+      id: '1',
+      text: 'Hello world',
+      user: { id: '1', username: 'admin' },
+    },
+    {
+      id: '2',
+      text: 'Hello world 2',
+      user: { id: '2', username: 'user' },
+    },
+  ],
+};
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+  comments: [
+    {
+      id: '1',
+      text: 'Hello world',
+      user: { id: '1', username: 'admin' },
+    },
+    {
+      id: '2',
+      text: 'Hello world 2',
+      user: { id: '2', username: 'user' },
+    },
+  ],
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Loading = Template.bind({});
+Loading.args = {
+  comments: [],
+  isLoading: true,
+};

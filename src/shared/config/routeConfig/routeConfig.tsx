@@ -35,7 +35,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   // ^ Вычисляемое свойство:
   // Берется значение AppRoutes.MAIN ('main') и используется как ключ
   [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile',
+  [AppRoutes.PROFILE]: '/profile/', // + :id
   [AppRoutes.ARTICLES]: '/articles',
   [AppRoutes.ARTICLES_DETAILS]: '/articles/', // + :id
   // last
@@ -58,7 +58,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <AboutPage />,
   },
   [AppRoutes.PROFILE]: {
-    path: RoutePath[AppRoutes.PROFILE],
+    path: `${RoutePath[AppRoutes.PROFILE]}:id`,
     element: <ProfilePage />,
     authOnly: true,
   },

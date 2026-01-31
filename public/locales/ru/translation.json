@@ -43,5 +43,7 @@
   "Article not found": "Статья не найдена",
   "An error occurred while loading the article": "Произошла ошибка во время загрузки статьи",
   "Comment": "Комментарий",
-  "There are no comments": "Комментарии отсутствуют"
+  "There are no comments": "Комментарии отсутствуют",
+  "Enter your comment text": "Введите текст комментария",
+  "Send": "Отправить"
 }

@@ -24,12 +24,23 @@ export const CommentList = memo((props: CommentListProps) => {
   const { t } = useTranslation();
   const mods: Mods = {};
 
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.CommentList, mods, [className])}>
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+      </div>
+    );
+  }
+
   return (
     // eslint-disable-next-line i18next/no-literal-string
     <div className={classNames(cls.CommentList, mods, [className])}>
       {comments?.length
         ? comments.map((comment) => (
           <CommentCard
+            key={comment.id}
             className={cls.comment}
             comment={comment}
             isLoading={isLoading}

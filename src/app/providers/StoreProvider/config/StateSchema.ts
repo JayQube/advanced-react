@@ -10,6 +10,7 @@ import { CombinedState } from 'redux';
 import { To, NavigateOptions } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { AddCommentFormSchema } from 'features/addCommentForm';
 
 // Перечень всех схем для стора
 export interface StateSchema {
@@ -21,6 +22,7 @@ export interface StateSchema {
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentsSchema
+  addCommentForm?: AddCommentFormSchema
 }
 
 // Достаем названия ключей из StateSchema

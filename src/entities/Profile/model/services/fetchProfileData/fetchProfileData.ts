@@ -6,7 +6,7 @@ export const fetchProfileData = createAsyncThunk<
   // То что возвращает запрос
   Profile,
   // То что мы передаем
-  void,
+  string,
   // В случае ошибки вернет rejectValue
   ThunkConfig<string>
 >(
@@ -17,11 +17,12 @@ export const fetchProfileData = createAsyncThunk<
   'profile/fetchProfileData',
   // authData - объект с полями username и password
   // thunkAPI - объект с методами Redux (dispatch, getState, и т.д.)
-  async (_, thunkApi) => {
+  async (profileId, thunkApi) => {
     const { extra, rejectWithValue } = thunkApi;
+
     try {
       // Ожидаем что сервер вернет нам объект Profile
-      const response = await extra.api.get<Profile>('/profile');
+      const response = await extra.api.get<Profile>(`/profile/${profileId}`);
 
       if (!response.data) {
         throw new Error('No data received');

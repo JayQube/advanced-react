@@ -1,8 +1,8 @@
 import { ArticleDetails } from 'entities/Article';
-import { memo } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
 import {
@@ -11,6 +11,11 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/useInitialEffect/useInitialEffect';
+import { AddCommentForm } from 'features/addCommentForm';
+import { Loader } from 'shared/ui/Loader/Loader';
+import {
+  addCommentForArticle,
+} from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -39,7 +44,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useDispatch();
-  const mods: Mods = {};
+
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -47,15 +55,15 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   if (!id && __PROJECT__ !== 'storybook') {
     return (
-      <div className={classNames(cls.ArticleDetailsPage, mods, [className])}>
+      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         {t('Article not found')}
       </div>
     );
   }
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ArticleDetailsPage, mods, [className])}>
+    <DynamicModuleLoader reducers={reducers}>
+      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails
           id={id || '1'}
         />
@@ -63,6 +71,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           className={cls.commentTitle}
           title={t('Comment')}
         />
+        <Suspense fallback="">
+          <AddCommentForm
+            onSendComment={onSendComment}
+          />
+        </Suspense>
+        {/* <AddCommentForm
+          onSendComment={onSendComment}
+        /> */}
         <CommentList
           isLoading={commentsIsLoading}
           comments={comments}

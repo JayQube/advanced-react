@@ -21,7 +21,7 @@ const article: Article = {
   id: '1',
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
-  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  img: '',
   views: 1022,
   createdAt: '26.02.2022',
   type: [ArticleType.IT],
@@ -59,6 +59,9 @@ Normal.decorators = [StoreDecorator({
   articleDetails: {
     data: article,
   },
+  addCommentForm: {
+    text: 'Текст комментария',
+  },
 })];
 
 export const Dark = Template.bind({});
@@ -68,6 +71,9 @@ Dark.decorators = [
   StoreDecorator({
     articleDetails: {
       data: article,
+    },
+    addCommentForm: {
+      text: 'Текст комментария',
     },
   }),
 ];

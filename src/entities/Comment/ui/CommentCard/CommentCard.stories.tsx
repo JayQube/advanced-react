@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { CommentCard } from './CommentCard';
 
 export default {
-  title: 'entities/CommentCard',
+  title: 'entities/Comment/CommentCard',
   component: CommentCard,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -20,9 +20,8 @@ Normal.args = {
     id: '1',
     text: 'text',
     user: {
-      avatar: undefined,
       id: '1',
-      username: 'username',
+      username: 'admin',
     },
   },
 };
@@ -33,10 +32,19 @@ Dark.args = {
     id: '1',
     text: 'text',
     user: {
-      avatar: undefined,
       id: '1',
-      username: 'username',
+      username: 'admin',
     },
   },
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Loading = Template.bind({});
+Loading.args = {
+  comment: {
+    id: '1',
+    text: 'hello world',
+    user: { id: '1', username: 'Vasya' },
+  },
+  isLoading: true,
+};
