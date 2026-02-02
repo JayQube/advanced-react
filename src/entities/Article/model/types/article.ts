@@ -1,7 +1,7 @@
 export enum ArticleBlockType {
-    CODE = 'CODE',
-    IMAGE = 'IMAGE',
-    TEXT = 'TEXT',
+    CODE = 'CODE', // eslint-disable-line no-unused-vars
+    IMAGE = 'IMAGE', // eslint-disable-line no-unused-vars
+    TEXT = 'TEXT', // eslint-disable-line no-unused-vars
 }
 
 export interface ArticleBlockBase {
@@ -29,9 +29,9 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
 export enum ArticleType {
-    IT = 'IT',
-    SCIENCE = 'SCIENCE',
-    ECONOMICS = 'ECONOMICS'
+    IT = 'IT', // eslint-disable-line no-unused-vars
+    SCIENCE = 'SCIENCE', // eslint-disable-line no-unused-vars
+    ECONOMICS = 'ECONOMICS' // eslint-disable-line no-unused-vars
 }
 
 export interface Article {

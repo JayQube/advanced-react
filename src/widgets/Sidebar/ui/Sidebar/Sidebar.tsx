@@ -3,7 +3,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { SidebarItemsList } from '../../model/items';
+import { useSelector } from 'react-redux';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
@@ -15,6 +16,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   // Состояние сайдбара. false - развернут / true - свернут
   const [collapsed, setCollapsed] = useState(false);
 
+  const sidebarItemsList = useSelector(getSidebarItems);
+
   // Функция-переключатель. setCollapsed принимает колбек в виде нынешнего состояиня
   // и меняет его на противоположное
   const onToggle = () => {
@@ -23,13 +26,13 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
   // Проходимся по массиву данных из model\items.ts и рендерим каждый объект
   // в компонент SidebarItem
-  const itemsList = useMemo(() => SidebarItemsList.map((item) => (
+  const itemsList = useMemo(() => sidebarItemsList.map((item) => (
     <SidebarItem
       item={item}
       collapsed={collapsed}
       key={item.path}
     />
-  )), [collapsed]);
+  )), [collapsed, sidebarItemsList]);
 
   return (
     <div

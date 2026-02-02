@@ -4,6 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
+import { ArticleDetailsCommentsSchema } from '../../model/types/ArticleDetailsCommentsSchema';
 
 export default {
   title: 'pages/ArticleDetailsPage',
@@ -15,7 +16,28 @@ export default {
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
-// console.log(args);
+
+const articleComments: ArticleDetailsCommentsSchema = {
+  ids: ['1', '2'],
+  entities: {
+    1: {
+      id: '1',
+      user: {
+        id: '1',
+        username: 'admin',
+      },
+      text: 'Первый комментарий',
+    },
+    2: {
+      id: '2',
+      user: {
+        id: '2',
+        username: 'user',
+      },
+      text: 'Второй комментарий',
+    },
+  },
+};
 
 const article: Article = {
   id: '1',
@@ -60,8 +82,9 @@ Normal.decorators = [StoreDecorator({
     data: article,
   },
   addCommentForm: {
-    text: 'Текст комментария',
+    text: '',
   },
+  articleDetailsComments: articleComments,
 })];
 
 export const Dark = Template.bind({});
@@ -73,7 +96,8 @@ Dark.decorators = [
       data: article,
     },
     addCommentForm: {
-      text: 'Текст комментария',
+      text: '',
     },
+    articleDetailsComments: articleComments,
   }),
 ];

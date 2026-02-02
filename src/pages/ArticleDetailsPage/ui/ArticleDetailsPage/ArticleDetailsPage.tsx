@@ -12,7 +12,6 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/useInitialEffect/useInitialEffect';
 import { AddCommentForm } from 'features/addCommentForm';
-import { Loader } from 'shared/ui/Loader/Loader';
 import {
   addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
