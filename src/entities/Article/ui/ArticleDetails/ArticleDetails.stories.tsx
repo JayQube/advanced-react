@@ -6,7 +6,7 @@ import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/arti
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-  title: 'entities/ArticleDetails',
+  title: 'entities/Article/ArticleDetails',
   component: ArticleDetails,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -19,6 +19,10 @@ const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetail
 const article: Article = {
   id: '1',
   title: 'Javascript news',
+  user: {
+    id: '1',
+    username: 'admin',
+  },
   subtitle: 'Что нового в JS за 2022 год?',
   img: '',
   views: 1022,

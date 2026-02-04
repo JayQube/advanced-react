@@ -7,10 +7,26 @@ import { ArticleTextBlock } from '../../model/types/article';
 interface ArticleTextBlockComponentProps {
     className?: string;
     block: ArticleTextBlock;
+    textPreview?: boolean;
 }
 
 export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentProps) => {
-  const { className, block } = props;
+  const { className, block, textPreview } = props;
+  console.log(block.paragraphs[0]);
+
+  if (textPreview) {
+    return (
+      <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
+        {block.title && (
+          <Text title={block.title} className={cls.title} />
+        )}
+        <Text
+          text={block.paragraphs[0]}
+          className={cls.paragraph}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
@@ -18,7 +34,11 @@ export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentP
         <Text title={block.title} className={cls.title} />
       )}
       {block.paragraphs.map((paragraph) => (
-        <Text key={paragraph} text={paragraph} className={cls.paragraph} />
+        <Text
+          key={paragraph}
+          text={paragraph}
+          className={cls.paragraph}
+        />
       ))}
     </div>
   );

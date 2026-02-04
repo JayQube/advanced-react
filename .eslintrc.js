@@ -109,6 +109,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-console': 'off',
     'no-undef': 'off',
+    'react/no-array-index-key': 'off',
   },
   globals: {
     // Разрешаем использовать кастомную глобальную переменную (например, для dev/prod режимов)

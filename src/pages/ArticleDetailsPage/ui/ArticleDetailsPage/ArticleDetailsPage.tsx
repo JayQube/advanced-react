@@ -1,6 +1,6 @@
 import { ArticleDetails } from 'entities/Article';
 import { memo, Suspense, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
@@ -12,6 +12,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/useInitialEffect/useInitialEffect';
 import { AddCommentForm } from 'features/addCommentForm';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import {
   addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -36,13 +38,17 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const {
     className,
   } = props;
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { id } = useParams<{id: string}>();
 
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-  const dispatch = useDispatch();
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
@@ -63,9 +69,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <ArticleDetails
-          id={id || '1'}
-        />
+        <Button
+          theme={ButtonTheme.OUTLINE}
+          onClick={onBackToList}
+        >
+          {t('Back to list')}
+        </Button>
+        <ArticleDetails id={id || '1'} />
         <Text
           className={cls.commentTitle}
           title={t('Comment')}

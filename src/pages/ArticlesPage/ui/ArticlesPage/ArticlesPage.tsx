@@ -1,11 +1,13 @@
+/* eslint-disable max-len */
+import { Article, ArticleList, ArticleView } from 'entities/Article';
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+// import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
 // import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
-   className?: string;
+  className?: string;
 }
 
 const ArticlesPage = (props: ArticlesPageProps) => {
@@ -14,13 +16,15 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   } = props;
 
   // const dispatch = useAppDispatch();
-  const { t } = useTranslation();
-
-  const mods: Mods = {};
+  // const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls.ArticlesPage, mods, [className])}>
-      {t('Articles')}
+    <div className={classNames(cls.ArticlesPage, {}, [className])}>
+      <ArticleList
+        isLoading
+        view={ArticleView.BIG}
+        articles={[]}
+      />
     </div>
   );
 };
