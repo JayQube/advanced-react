@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import localAdminAvatarImage from 'shared/assets/storybook/admin_avatar.jpg';
 import { CommentCard } from './CommentCard';
 
 export default {
@@ -22,6 +23,7 @@ Normal.args = {
     user: {
       id: '1',
       username: 'admin',
+      avatar: localAdminAvatarImage,
     },
   },
 };
@@ -34,6 +36,7 @@ Dark.args = {
     user: {
       id: '1',
       username: 'admin',
+      avatar: localAdminAvatarImage,
     },
   },
 };

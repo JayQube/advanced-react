@@ -7,12 +7,14 @@ import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import {
   articleDetailsCommentsReducer,
 } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
+import { articlesPageReducer } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 // Для тестов и storybook
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   profile: profileReducer,
+  articlesPage: articlesPageReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
   articleDetailsComments: articleDetailsCommentsReducer,

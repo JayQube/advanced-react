@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import localAdminAvatarImage from 'shared/assets/storybook/admin_avatar.jpg';
 import { CommentList } from './CommentList';
 
 export default {
@@ -20,12 +21,12 @@ Normal.args = {
     {
       id: '1',
       text: 'Hello world',
-      user: { id: '1', username: 'admin' },
+      user: { id: '1', username: 'admin', avatar: localAdminAvatarImage },
     },
     {
       id: '2',
       text: 'Hello world 2',
-      user: { id: '2', username: 'user' },
+      user: { id: '2', username: 'user', avatar: localAdminAvatarImage },
     },
   ],
 };
@@ -36,12 +37,12 @@ Dark.args = {
     {
       id: '1',
       text: 'Hello world',
-      user: { id: '1', username: 'admin' },
+      user: { id: '1', username: 'admin', avatar: localAdminAvatarImage },
     },
     {
       id: '2',
       text: 'Hello world 2',
-      user: { id: '2', username: 'user' },
+      user: { id: '2', username: 'user', avatar: localAdminAvatarImage },
     },
   ],
 };

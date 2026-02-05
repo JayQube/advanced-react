@@ -3,6 +3,9 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import localJSAvatarImage from 'shared/assets/storybook/js_image.png';
+import localAdminAvatarImage from 'shared/assets/storybook/admin_avatar.jpg';
+import localUserAvatarImage from 'shared/assets/storybook/user_avatar.jpg';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { ArticleDetailsCommentsSchema } from '../../model/types/ArticleDetailsCommentsSchema';
 
@@ -25,6 +28,7 @@ const articleComments: ArticleDetailsCommentsSchema = {
       user: {
         id: '1',
         username: 'admin',
+        avatar: localAdminAvatarImage,
       },
       text: 'Первый комментарий',
     },
@@ -33,6 +37,7 @@ const articleComments: ArticleDetailsCommentsSchema = {
       user: {
         id: '2',
         username: 'user',
+        avatar: localUserAvatarImage,
       },
       text: 'Второй комментарий',
     },
@@ -47,7 +52,7 @@ const article: Article = {
     username: 'admin',
   },
   subtitle: 'Что нового в JS за 2022 год?',
-  img: '',
+  img: localJSAvatarImage,
   views: 1022,
   createdAt: '26.02.2022',
   type: [ArticleType.IT],

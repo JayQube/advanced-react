@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import localJSAvatarImage from 'shared/assets/storybook/js_image.png';
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
@@ -24,7 +25,7 @@ const article: Article = {
     username: 'admin',
   },
   subtitle: 'Что нового в JS за 2022 год?',
-  img: '',
+  img: localJSAvatarImage,
   views: 1022,
   createdAt: '26.02.2022',
   type: [ArticleType.IT],

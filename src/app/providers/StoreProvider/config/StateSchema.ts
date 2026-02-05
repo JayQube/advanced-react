@@ -11,6 +11,7 @@ import { To, NavigateOptions } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 // Перечень всех схем для стора
 export interface StateSchema {
@@ -18,11 +19,12 @@ export interface StateSchema {
   user: UserSchema;
 
   // Асинхронные редюсеры
-  loginForm?: LoginSchema
-  profile?: ProfileSchema
-  articleDetails?: ArticleDetailsSchema
-  articleDetailsComments?: ArticleDetailsCommentsSchema
-  addCommentForm?: AddCommentFormSchema
+  loginForm?: LoginSchema;
+  profile?: ProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
+  addCommentForm?: AddCommentFormSchema;
+  articlesPage?: ArticlesPageSchema;
 }
 
 // Достаем названия ключей из StateSchema
