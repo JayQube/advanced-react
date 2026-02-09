@@ -10,10 +10,11 @@ import {
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useDispatch, useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { AddCommentForm } from 'features/addCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import {
   addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -60,15 +61,15 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   if (!id && __PROJECT__ !== 'storybook') {
     return (
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         {t('Article not found')}
-      </div>
+      </Page>
     );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <Button
           theme={ButtonTheme.OUTLINE}
           onClick={onBackToList}
@@ -92,7 +93,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           isLoading={commentsIsLoading}
           comments={comments}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

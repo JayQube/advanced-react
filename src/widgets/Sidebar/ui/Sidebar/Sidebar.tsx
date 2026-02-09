@@ -35,7 +35,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   )), [collapsed, sidebarItemsList]);
 
   return (
-    <div
+    <menu
       // data-testid: это метка для тестов
       data-testid="sidebar"
       // Класс cls.collapsed будет активен если в состоянии collapsed значение true
@@ -67,6 +67,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
           className={cls.lang}
         />
       </div>
-    </div>
+    </menu>
   );
 });

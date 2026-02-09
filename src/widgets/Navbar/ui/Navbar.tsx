@@ -41,7 +41,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   // пользователя и меняем функцию и текст кнопки на logout
   if (authData) {
     return (
-      <div className={classNames(cls.navbar, {}, [className])}>
+      <header className={classNames(cls.navbar, {}, [className])}>
         <Button
           theme={ButtonTheme.CLEAR_INVERTED}
           className={cls.links}
@@ -49,7 +49,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         >
           {t('Logout')}
         </Button>
-      </div>
+      </header>
     );
   }
 
@@ -58,7 +58,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     // Основной, из файла со стилями
     // Возможные, типа { hovered: true, disabled: false }
     // Те, что могут прийти из вне
-    <div className={classNames(cls.navbar, {}, [className])}>
+    <header className={classNames(cls.navbar, {}, [className])}>
       <Button
         theme={ButtonTheme.CLEAR_INVERTED}
         className={cls.links}
@@ -71,6 +71,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         isOpen={isAuthModal}
         onClose={onCloseModal}
       />
-    </div>
+    </header>
   );
 });

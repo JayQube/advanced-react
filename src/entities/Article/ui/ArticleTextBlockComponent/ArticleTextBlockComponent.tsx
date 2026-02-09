@@ -12,7 +12,6 @@ interface ArticleTextBlockComponentProps {
 
 export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentProps) => {
   const { className, block, textPreview } = props;
-  console.log(block.paragraphs[0]);
 
   if (textPreview) {
     return (
