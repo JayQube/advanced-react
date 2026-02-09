@@ -11,11 +11,13 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { UISchema } from 'features/UI';
 
 // Перечень всех схем для стора
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  ui: UISchema;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;

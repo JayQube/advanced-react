@@ -18,6 +18,7 @@ const defaultAsyncReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
   articleDetailsComments: articleDetailsCommentsReducer,
+  ui: () => ({ scroll: {} }), // Заглушка для ui редьюсера, чтобы не падало при сохранении позиции скролла
 };
 
 export const StoreDecorator = (
