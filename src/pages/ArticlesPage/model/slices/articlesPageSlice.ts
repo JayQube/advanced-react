@@ -31,6 +31,7 @@ const articlesPageSlice = createSlice({
     hasMore: true,
     // По сколько карточек будет подгружаться
     limit: 9,
+    _inited: false,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
@@ -45,6 +46,7 @@ const articlesPageSlice = createSlice({
       state.view = view;
       // Если плитка, то подгружаем по 9 карточек, если список то по 4
       state.limit = view === ArticleView.BIG ? 4 : 9;
+      state._inited = true;
     },
   },
   extraReducers: (builder) => {

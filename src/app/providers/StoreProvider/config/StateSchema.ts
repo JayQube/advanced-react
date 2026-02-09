@@ -7,7 +7,6 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { CombinedState } from 'redux';
-import { To, NavigateOptions } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
@@ -44,7 +43,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 // Типы для экстра аргуметов (для axios)
 export interface ThunkExtraArg {
   api: AxiosInstance,
-  navigate?: (_to: To, _options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T> {

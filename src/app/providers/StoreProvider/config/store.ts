@@ -4,7 +4,6 @@ import {
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
-import { To, NavigateOptions } from 'react-router-dom';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
@@ -12,7 +11,6 @@ export function createReduxStore(
   initialState?: StateSchema,
   // Для тестов и storybook
   asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: (_to: To, _options?: NavigateOptions) => void,
 ) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     // Для тестов и storybook
@@ -25,7 +23,6 @@ export function createReduxStore(
 
   const extraArg: ThunkExtraArg = {
     api: $api,
-    navigate,
   };
 
   // Конфигурируем стор с типом StateSchema в котором список
