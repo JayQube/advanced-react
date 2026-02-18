@@ -3,12 +3,12 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Profile } from '../../types/profile';
 
 export const fetchProfileData = createAsyncThunk<
-  // То что возвращает запрос
-  Profile,
-  // То что мы передаем
-  string,
-  // В случае ошибки вернет rejectValue
-  ThunkConfig<string>
+// То что возвращает запрос
+Profile,
+// То что мы передаем
+string,
+// В случае ошибки вернет rejectValue
+ThunkConfig<string>
 >(
   // Префикс для автоматически генерируемых типов экшенов:
   // users/fetchById/pending

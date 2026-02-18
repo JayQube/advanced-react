@@ -5,7 +5,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './[FTName].module.scss';
 
 interface [FTName]Props {
-   className?: string;
+  className?: string;
 }
 
 export const [FTName] = memo((props: [FTName]Props) => {

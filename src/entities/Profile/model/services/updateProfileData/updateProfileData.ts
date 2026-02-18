@@ -5,39 +5,39 @@ import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 export const updateProfileData = createAsyncThunk<
-    Profile,
-    void,
-    ThunkConfig<ValidateProfileError[]>
-    >(
-      'profile/updateProfileData',
-      async (_, thunkApi) => {
-        const { extra, rejectWithValue, getState } = thunkApi;
+Profile,
+void,
+ThunkConfig<ValidateProfileError[]>
+>(
+  'profile/updateProfileData',
+  async (_, thunkApi) => {
+    const { extra, rejectWithValue, getState } = thunkApi;
 
-        // Достаем formData из стейта
-        const formData = getProfileForm(getState());
+    // Достаем formData из стейта
+    const formData = getProfileForm(getState());
 
-        // Отправляем formData на проверку
-        const errors = validateProfileData(formData);
+    // Отправляем formData на проверку
+    const errors = validateProfileData(formData);
 
-        // Если в массиве есть хоть одна ошибка, вызываем rejectWithValue
-        if (errors.length) {
-          return rejectWithValue(errors);
-        }
+    // Если в массиве есть хоть одна ошибка, вызываем rejectWithValue
+    if (errors.length) {
+      return rejectWithValue(errors);
+    }
 
-        try {
-          const response = await extra.api.put<Profile>(
-            `/profile/${formData?.id}`,
-            formData,
-          );
+    try {
+      const response = await extra.api.put<Profile>(
+        `/profile/${formData?.id}`,
+        formData,
+      );
 
-          if (!response.data) {
-            throw new Error();
-          }
+      if (!response.data) {
+        throw new Error();
+      }
 
-          return response.data;
-        } catch (e) {
-          console.log(e);
-          return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
-        }
-      },
-    );
+      return response.data;
+    } catch (e) {
+      console.log(e);
+      return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+    }
+  },
+);

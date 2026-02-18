@@ -9,12 +9,12 @@ interface LoginByUsernameProps {
 }
 
 export const loginByUsername = createAsyncThunk<
-  // То что возвращает запрос
-  User,
-  // То что мы передаем
-  LoginByUsernameProps,
-  // В случае ошибки вернет rejectValue
-  ThunkConfig<string>
+// То что возвращает запрос
+User,
+// То что мы передаем
+LoginByUsernameProps,
+// В случае ошибки вернет rejectValue
+ThunkConfig<string>
 >(
   // Префикс для автоматически генерируемых типов экшенов:
   // users/fetchById/pending

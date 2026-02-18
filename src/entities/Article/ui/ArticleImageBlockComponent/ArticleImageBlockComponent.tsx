@@ -5,8 +5,8 @@ import cls from './ArticleImageBlockComponent.module.scss';
 import { ArticleImageBlock } from '../../model/types/article';
 
 interface ArticleImageBlockComponentProps {
-    className?: string;
-    block: ArticleImageBlock;
+  className?: string;
+  block: ArticleImageBlock;
 }
 
 export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponentProps) => {

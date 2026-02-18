@@ -5,6 +5,6 @@ import { Comment } from 'entities/Comment';
 // Интерфейсом ArticleDetailsCommentsSchema мы расширяем EntityState
 // Делаем так для commentsAdapter = createEntityAdapter
 export interface ArticleDetailsCommentsSchema extends EntityState<Comment>{
-    isLoading?: boolean;
-    error?: string;
+  isLoading?: boolean;
+  error?: string;
 }

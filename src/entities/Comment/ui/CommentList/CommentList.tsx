@@ -8,9 +8,9 @@ import cls from './CommentList.module.scss';
 import { CommentCard } from '../CommentCard/CommentCard';
 
 interface CommentListProps {
-   className?: string;
-   comments?: Comment[];
-   isLoading?: boolean;
+  className?: string;
+  comments?: Comment[];
+  isLoading?: boolean;
 }
 
 export const CommentList = memo((props: CommentListProps) => {

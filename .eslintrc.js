@@ -1,3 +1,5 @@
+const { error } = require('console');
+
 module.exports = {
   env: {
     // Предопределяет глобальные переменные браузера (window, document и т.д.)
@@ -42,11 +44,47 @@ module.exports = {
     'react/jsx-indent-props': [2, 2],
 
     // Общие отступы в коде (2 пробела)
-    indent: [2, 2],
+    // indent: [2, 2],
     // indent: [2, 2 || 'tab'],
 
+    // Отступы для TypeScript (2 пробела)
+    '@typescript-eslint/indent': [
+      'error',
+      2,
+      {
+        // Настраиваем конкретные конструкции
+        SwitchCase: 1,
+        VariableDeclarator: 1,
+        outerIIFEBody: 1,
+        MemberExpression: 1,
+        FunctionDeclaration: {
+          parameters: 1,
+          body: 1,
+        },
+        FunctionExpression: {
+          parameters: 1,
+          body: 1,
+        },
+        CallExpression: {
+          arguments: 1,
+        },
+        ArrayExpression: 1,
+        ObjectExpression: 1,
+        ImportDeclaration: 1,
+        flatTernaryExpressions: false,
+        ignoreComments: false,
+        // Очищаем ignoredNodes или добавляем только нужные исключения
+        ignoredNodes: [
+          'TSTypeParameterInstantiation',
+          'FunctionExpression > .params[decorators.length > 0]',
+          'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
+          'ClassBody.body > PropertyDefinition[decorators.length > 0] > .key',
+        ],
+      },
+    ],
+
     // Разрешенные расширения для файлов с JSX
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
 
     // Отключает проверку unresolved imports (нужно для TypeScript + Webpack)
     'import/no-unresolved': 'off',

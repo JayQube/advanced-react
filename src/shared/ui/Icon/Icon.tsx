@@ -3,8 +3,8 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Icon.module.scss';
 
 interface IconProps {
-   className?: string;
-   Svg: React.VFC<React.SVGProps<SVGSVGElement>>
+  className?: string;
+  Svg: React.VFC<React.SVGProps<SVGSVGElement>>
 }
 
 export const Icon = memo((props: IconProps) => {

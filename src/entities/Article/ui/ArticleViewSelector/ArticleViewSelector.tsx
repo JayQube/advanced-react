@@ -8,9 +8,9 @@ import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '../../model/types/article';
 
 interface ArticleViewSelectorProps {
-    className?: string;
-    view: ArticleView,
-    onViewClick?: (_view: ArticleView) => void;
+  className?: string;
+  view: ArticleView,
+  onViewClick?: (_view: ArticleView) => void;
 }
 
 const viewTypes = [

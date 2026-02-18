@@ -7,10 +7,8 @@
 .SMALL {
   display: flex;
   flex-wrap: wrap;
+  gap: 30px;
   justify-content: center;
-
-  .card {
-    margin-right: 30px;
-    margin-bottom: 30px;
-  }
+  max-width: 1010px;
+  margin: 0 auto;
 }
