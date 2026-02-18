@@ -5,8 +5,8 @@ import { Button, ButtonTheme } from '../Button/Button';
 import cls from './Code.module.scss';
 
 interface CodeProps {
-   className?: string;
-   text: string;
+  className?: string;
+  text: string;
 }
 
 export const Code = memo((props: CodeProps) => {

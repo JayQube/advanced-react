@@ -5,9 +5,9 @@ import cls from './ArticleTextBlockComponent.module.scss';
 import { ArticleTextBlock } from '../../model/types/article';
 
 interface ArticleTextBlockComponentProps {
-    className?: string;
-    block: ArticleTextBlock;
-    textPreview?: boolean;
+  className?: string;
+  block: ArticleTextBlock;
+  textPreview?: boolean;
 }
 
 export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentProps) => {

@@ -16,6 +16,8 @@ interface PageProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
+  // isSaveScroll - признак, что скролл должен сохраняться
+  // после загрузки новых данных
   isSaveScroll?: boolean;
 }
 
@@ -62,10 +64,15 @@ export const Page = memo((props: PageProps) => {
       className={classNames(cls.Page, {}, [className])}
     >
       {children}
-      <div
-        ref={triggerRef}
-        className={cls.trigger}
-      />
+      {onScrollEnd
+        ? (
+          <div
+            ref={triggerRef}
+            className={cls.trigger}
+          />
+        )
+        : null}
+
     </section>
   );
 });

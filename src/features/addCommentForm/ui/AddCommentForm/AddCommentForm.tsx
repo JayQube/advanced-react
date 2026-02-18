@@ -14,8 +14,8 @@ import { getAddCommentFormError, getAddCommentFormText } from '../../model/selec
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
-    className?: string;
-    onSendComment: (_: string) => void;
+  className?: string;
+  onSendComment: (_: string) => void;
 }
 
 const reducers: ReducersList = {

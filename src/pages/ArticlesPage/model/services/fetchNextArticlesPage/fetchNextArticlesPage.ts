@@ -9,9 +9,9 @@ import { articlesPageActions } from '../../slices/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 export const fetchNextArticlesPage = createAsyncThunk<
-  void,
-  void,
-  ThunkConfig<string>
+void,
+void,
+ThunkConfig<string>
 >(
   'articlesPage/fetchNextArticlesPage',
   async (_, thunkApi) => {
@@ -24,9 +24,7 @@ export const fetchNextArticlesPage = createAsyncThunk<
 
     if (hasMore && !isLoading) {
       dispatch(articlesPageActions.setPage(page + 1));
-      dispatch(fetchArticlesList({
-        page: page + 1,
-      }));
+      dispatch(fetchArticlesList({}));
     }
   },
 );

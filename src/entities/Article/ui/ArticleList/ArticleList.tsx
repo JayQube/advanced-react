@@ -1,17 +1,17 @@
 import { memo } from 'react';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-// import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
-   className?: string;
-   articles: Article[];
-   isLoading?: boolean;
-   view?: ArticleView;
+  className?: string;
+  articles: Article[];
+  isLoading?: boolean;
+  view?: ArticleView;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
@@ -32,8 +32,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = ArticleView.SMALL,
   } = props;
 
-  // const dispatch = useAppDispatch();
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   const renderArticle = (article: Article) => (
     <ArticleListItem
@@ -43,6 +42,17 @@ export const ArticleList = memo((props: ArticleListProps) => {
       key={article.id}
     />
   );
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames('', {}, [className, cls[view]])}>
+        <Text
+          title={t('Articles not found')}
+          size={TextSize.L}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames('', {}, [className, cls[view]])}>
