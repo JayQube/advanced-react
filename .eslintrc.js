@@ -1,5 +1,3 @@
-const { error } = require('console');
-
 module.exports = {
   env: {
     // Предопределяет глобальные переменные браузера (window, document и т.д.)
@@ -127,7 +125,7 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['to', 'data-testid'],
+        ignoreAttribute: ['to', 'data-testid', 'target'],
       },
     ],
 
@@ -148,6 +146,8 @@ module.exports = {
     'no-console': 'off',
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
+    'arrow-body-style': 'off',
+
   },
   globals: {
     // Разрешаем использовать кастомную глобальную переменную (например, для dev/prod режимов)

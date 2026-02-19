@@ -574,7 +574,7 @@
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "SCIENCE"  
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -668,6 +668,12 @@
       "userId": "1",
       "text": "python!!!",
       "id": "p5rMadd"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "123",
+      "id": "vpCHjFM"
     }
   ],
   "users": [

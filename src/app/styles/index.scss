@@ -18,3 +18,8 @@
 .content-page {
   display: flex;
 }
+
+* {
+  scrollbar-width: auto;          /* "auto" или "thin"  */
+  scrollbar-color: var(--inverted-primary-color) var(--card-bg);   /* плашка скролла и дорожка */
+}

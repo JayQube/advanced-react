@@ -1,9 +1,11 @@
+// Стили применяются к каждой карточке в списке
 .BIG {
   .card {
     margin-bottom: 31px;
   }
 }
 
+// Стили применяются к контейнеру с карточками
 .SMALL {
   display: flex;
   flex-wrap: wrap;

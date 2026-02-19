@@ -10,9 +10,7 @@ import localKotlinAvatarImage from 'shared/assets/storybook/kotlin_image.png';
 
 import ArticlesPage from './ArticlesPage';
 
-const ids = ['1', '2', '3'];
-
-const entities = {
+const articles = {
   1: {
     id: '1',
     user: {
@@ -153,8 +151,8 @@ export const Big = Template.bind({});
 Big.args = {};
 Big.decorators = [StoreDecorator({
   articlesPage: {
-    ids,
-    entities,
+    ids: Object.keys(articles),
+    entities: articles,
     view: ArticleView.BIG,
   },
 })];
@@ -163,8 +161,8 @@ export const BigLoading = Template.bind({});
 BigLoading.args = {};
 BigLoading.decorators = [StoreDecorator({
   articlesPage: {
-    ids,
-    entities,
+    ids: [],
+    entities: {},
     view: ArticleView.BIG,
     isLoading: true,
   },
@@ -176,8 +174,8 @@ BigDark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     articlesPage: {
-      ids,
-      entities,
+      ids: Object.keys(articles),
+      entities: articles,
       view: ArticleView.BIG,
     },
   }),
@@ -187,8 +185,8 @@ export const Small = Template.bind({});
 Small.args = {};
 Small.decorators = [StoreDecorator({
   articlesPage: {
-    ids,
-    entities,
+    ids: Object.keys(articles),
+    entities: articles,
     view: ArticleView.SMALL,
   },
 })];
@@ -197,8 +195,8 @@ export const SmallLoading = Template.bind({});
 SmallLoading.args = {};
 SmallLoading.decorators = [StoreDecorator({
   articlesPage: {
-    ids,
-    entities,
+    ids: [],
+    entities: {},
     view: ArticleView.SMALL,
     isLoading: true,
   },
@@ -210,12 +208,9 @@ SmallDark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     articlesPage: {
-      ids,
-      entities,
+      ids: Object.keys(articles),
+      entities: articles,
       view: ArticleView.SMALL,
     },
   }),
 ];
-// export const Dark = Template.bind({});
-// Dark.args = {};
-// Dark.decorators = [ThemeDecorator(Theme.DARK)];
