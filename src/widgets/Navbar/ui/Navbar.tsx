@@ -6,6 +6,9 @@ import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 // Описание пропсов которые Navbar ожидает на вход.
@@ -42,6 +45,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(cls.navbar, {}, [className])}>
+        <Text
+          className={cls.appName}
+          title={t('Ulbi TV')}
+          theme={TextTheme.INVERTED}
+        />
+        <AppLink
+          to={RoutePath.article_create}
+          theme={AppLinkTheme.SECONDARY}
+        >
+          {t('Create article')}
+        </AppLink>
         <Button
           theme={ButtonTheme.CLEAR_INVERTED}
           className={cls.links}

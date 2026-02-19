@@ -4,6 +4,7 @@ import cls from './Text.module.scss';
 
 export enum TextTheme {
   PRIMARY = 'primary', // eslint-disable-line no-unused-vars
+  INVERTED = 'inverted', // eslint-disable-line no-unused-vars
   ERROR = 'error' // eslint-disable-line no-unused-vars
 }
 

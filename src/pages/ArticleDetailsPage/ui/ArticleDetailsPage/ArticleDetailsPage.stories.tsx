@@ -14,7 +14,7 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 import { ArticleDetailsCommentsSchema } from '../../model/types/ArticleDetailsCommentsSchema';
 
 export default {
-  title: 'pages/ArticleDetailsPage',
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
   component: ArticleDetailsPage,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -271,6 +271,11 @@ Normal.decorators = [StoreDecorator({
       entities: articleRecommendations,
     },
     comments: articleComments,
+  },
+  user: {
+    authData: {
+      id: '1',
+    },
   },
 })];
 
