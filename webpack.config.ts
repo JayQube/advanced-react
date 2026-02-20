@@ -19,6 +19,8 @@ export default (env: BuildEnv) => {
     html: path.resolve(__dirname, 'public', 'index.html'),
     // Путь к папке src
     src: path.resolve(__dirname, 'src'),
+    locales: path.resolve(__dirname, 'public', 'locales'),
+    buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };
 
   const mode: BuildMode = env.mode || 'development';
