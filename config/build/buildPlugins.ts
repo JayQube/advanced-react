@@ -35,8 +35,10 @@ export function buildPlugins({
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
     }),
+    // Копирует файлы и папки из одного места в другое
     new CopyPlugin({
       patterns: [
+        // Копируем папку с локализацией и папку с изображениями в папку сборки
         { from: paths.locales, to: paths.buildLocales },
         { from: paths.images, to: paths.buildImages },
       ],

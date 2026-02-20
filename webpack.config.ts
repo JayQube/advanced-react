@@ -19,9 +19,13 @@ export default (env: BuildEnv) => {
     html: path.resolve(__dirname, 'public', 'index.html'),
     // Путь к папке src
     src: path.resolve(__dirname, 'src'),
+    // Путь к папке с локализацией
     locales: path.resolve(__dirname, 'public', 'locales'),
+    // Путь к папке с локализацией в билде
     buildLocales: path.resolve(__dirname, 'build', 'locales'),
+    // Путь к папке с изображениями
     images: path.resolve(__dirname, 'public', 'images'),
+    // Путь к папке с изображениями в билде
     buildImages: path.resolve(__dirname, 'build', 'images'),
   };
 
