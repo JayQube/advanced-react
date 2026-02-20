@@ -11,6 +11,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
     locales: path.resolve(__dirname, '..', '..', 'public', 'locales'),
     buildLocales: path.resolve(__dirname, '..', '..', 'build', 'locales'),
+    images: path.resolve(__dirname, '..', '..', 'public', 'images'),
+    buildImages: path.resolve(__dirname, '..', '..', 'build', 'images'),
   };
   config!.resolve!.modules!.unshift(paths.src);
   config!.resolve!.extensions!.push('.ts', '.tsx');
